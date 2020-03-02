@@ -1,0 +1,51 @@
+
+@hostname = localhost
+@port = 3000
+@host = {{hostname}}:{{port}}
+@contentType = application/json
+@createdAt = {{$datetime iso8601}}
+@modifiedBy = {{$processEnv USERNAME}}
+
+@baseUrl = http://localhost:3000
+
+
+@taskID =  1b3646ed-e910-45d7-849b-cb413f71066b
+
+# Get All Tasks
+GET {{baseUrl}}/tasks
+
+
+####
+# Get All Tasks by Filtering 
+GET {{baseUrl}}/tasks?status=DONE&search=Ali
+
+####
+# Create Task
+POST {{baseUrl}}/tasks
+Content-Type: application/json
+
+{
+    "title" : "Ali Veseli",
+    "description" : "This is a test!"  
+}
+
+
+####
+#  Get Task By Id
+GET {{baseUrl}}/tasks/{{taskID}} HTTP/1.1
+
+
+####
+# Delete Task By Id
+DELETE {{baseUrl}}/tasks/{{taskID}} HTTP/1.1
+
+
+
+####
+# Update Status
+PATCH  {{baseUrl}}/tasks/{{taskID}}/status HTTP/1.1
+Content-Type: application/json
+
+{
+    "status" : "DONE"
+}
