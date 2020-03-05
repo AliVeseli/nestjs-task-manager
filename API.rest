@@ -9,7 +9,7 @@
 @baseUrl = http://localhost:3000
 
 
-@taskID =  1b37b6ca-357b-49ca-a6ba-09396fc0e604
+@taskID =  1
 
 # Get All Tasks
 GET {{baseUrl}}/tasks
@@ -17,7 +17,7 @@ GET {{baseUrl}}/tasks
 
 ####
 # Get All Tasks by Filtering 
-GET {{baseUrl}}/tasks?status=DONE&search=Ali
+GET {{baseUrl}}/tasks?status=DONE&search=
 
 ####
 # Create Task
@@ -32,7 +32,7 @@ Content-Type: application/json
 
 ####
 #  Get Task By Id
-GET {{baseUrl}}/tasks/{{taskID}} HTTP/1.1
+GET {{baseUrl}}/tasks/2 HTTP/1.1
 
 
 ####
